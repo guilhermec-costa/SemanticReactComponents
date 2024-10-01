@@ -5,7 +5,7 @@ interface IfProps {
   children: React.ReactNode;
 }
 
-const If: React.FC<IfProps> = ({ condition, children }) => {
+const If: React.FC<IfProps> = ({ condition, children }): React.ReactNode => {
   return condition ? <>{children}</> : null;
 };
 
