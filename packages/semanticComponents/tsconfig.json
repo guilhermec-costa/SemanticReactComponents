@@ -1,0 +1,10 @@
+{
+  "extends": "../../tsconfig.json",  
+  "compilerOptions": {
+    "baseUrl": "./",  // Base do package
+    "paths": {
+      "@/*": ["src/*"]  // Alias @ para src deste package
+    }
+  },
+  "include": ["src/**/*"]
+}

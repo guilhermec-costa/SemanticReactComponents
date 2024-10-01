@@ -12,9 +12,13 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
+    "experimentalDecorators": true,
     "types": [
       "node"
-    ]
+    ],
+    "baseUrl": "./",
+    "paths": {
+      "@semanticComponents/*": ["./packages/semanticComponents/src/*"]
+    }
   },
-  "include": ["src"]
 }
