@@ -3,7 +3,7 @@ interface MapProps<T> {
     mapTo: (item: T) => React.ReactNode;
 }
 const Map = <T,>({eachIn, mapTo}: MapProps<T>): React.ReactNode => {
-    return <></>
+    return <>{eachIn.map(mapTo)}</>
 }
 
 export default Map;
