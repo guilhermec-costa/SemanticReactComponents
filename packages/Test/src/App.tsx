@@ -1,15 +1,17 @@
-import If from "../../semanticComponents/src/components/If";
-import For from "../../semanticComponents/src/components/For";
-import useToggle from "../../semanticComponents/src/hooks/useToggle";
-import useMounted from "../../semanticComponents/src/hooks/useMounted";
-import { useEffect } from "react";
+import {
+  If, For, useMounted, useToggle, useInterval,
+  usePrevious,
+  useIsIntersectingScreen
+} from "@semanticComponents/index";
+import { useEffect, useRef, useState } from "react";
 
 const App = () => {
     const [modalOpen, toggleModalOpen] = useToggle(false);
-		const mountedState = useMounted();
+    const componentRef = useRef(null);
+    const divIntersecting = useIsIntersectingScreen(componentRef);
 
     return <>
-        <button onClick={toggleModalOpen}>change modal view</button>
+        <button onClick={toggleModalOpen} ref={componentRef}>change modal view</button>
         <If
 					condition={modalOpen}
 					render={
