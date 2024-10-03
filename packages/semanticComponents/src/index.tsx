@@ -12,6 +12,7 @@ import {Switch, Case} from "./components/SwitchCase";
 import With from "./components/With";
 import Desktop from "./components/Desktop";
 import useDevice from "./hooks/useDevice";
+import useAsyncEffect from "./hooks/useAsyncEffect";
 
 export {
   If,
@@ -27,5 +28,6 @@ export {
   Switch, Case,
   With,
   Desktop,
-  useDevice
+  useDevice,
+  useAsyncEffect
 }

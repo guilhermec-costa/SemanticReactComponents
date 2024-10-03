@@ -1,6 +1,6 @@
 import React from "react";
 
-import { DeviceEnum }from "../hooks/useDevice";
+import { Devices }from "../hooks/useDevice";
 import useDevice from "../hooks/useDevice";
 
 interface MobileProps {
@@ -10,7 +10,7 @@ interface MobileProps {
 const Mobile: React.FC<React.PropsWithChildren<MobileProps>> = ({baseWidth, children}): React.ReactNode => {
   const device = useDevice(baseWidth);
 
-  return device === DeviceEnum.DESKTOP ?
+  return device === Devices.DESKTOP ?
     <React.Fragment>{children}</React.Fragment> :
     null;
 }

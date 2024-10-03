@@ -1,19 +1,19 @@
 import React from "react";
 
-export enum DeviceEnum {
+export enum Devices {
   DESKTOP = "Desktop",
   MOBILE = "Mobile"
 }
 
-const useDevice = (baseWidth?: number): DeviceEnum => {
+const useDevice = (baseWidth?: number): Devices => {
   const width = baseWidth || 1024;
-  const [device, setDevice] = React.useState(window.innerWidth >= width ? DeviceEnum.DESKTOP : DeviceEnum.MOBILE);
+  const [device, setDevice] = React.useState(window.innerWidth >= width ? Devices.DESKTOP : Devices.MOBILE);
 
   React.useEffect(() => {
     const handleResize = () => {
       window.innerWidth >= width ?
-        setDevice(DeviceEnum.DESKTOP) :
-        setDevice(DeviceEnum.MOBILE)
+        setDevice(Devices.DESKTOP) :
+        setDevice(Devices.MOBILE)
     }
     window.addEventListener("resize", handleResize)
 

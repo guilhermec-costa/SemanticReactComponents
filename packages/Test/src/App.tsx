@@ -8,7 +8,8 @@ import {
   Case,
   With,
   Desktop,
-  useDevice
+  useDevice,
+  useAsyncEffect
 } from "@semanticComponents/index";
 import { LegacyRef, useEffect, useRef, useState } from "react";
 
@@ -23,6 +24,12 @@ const App = () => {
     function cb(obj:any) {
       return <div>{obj.name}</div>;
     }
+
+    useAsyncEffect(async () => {
+      const response = await fetch('https://jsonplaceholder.typicode.com/posts/1');
+      const result = await response.json();
+      console.log(result)
+    }, [modalOpen]);
 
     return <>
         <button onClick={toggleModalOpen} ref={componentRef}>change modal view</button>
