@@ -1,14 +1,19 @@
 import {
   If, For, useMounted, useToggle, useInterval,
   usePrevious,
-  useIsIntersectingScreen
+  useIsIntersectingScreen,
+  useClickOutside,
+  Show,
+  Switch,
+  Case
 } from "@semanticComponents/index";
-import { useEffect, useRef, useState } from "react";
+import { LegacyRef, useEffect, useRef, useState } from "react";
 
 const App = () => {
     const [modalOpen, toggleModalOpen] = useToggle(false);
     const componentRef = useRef(null);
     const divIntersecting = useIsIntersectingScreen(componentRef);
+    const clickRef = useClickOutside(() => console.log("clicked outside component ref"));
 
     return <>
         <button onClick={toggleModalOpen} ref={componentRef}>change modal view</button>
@@ -21,6 +26,14 @@ const App = () => {
 						/>
           }
         />
+        <div ref={clickRef as LegacyRef<HTMLDivElement>}>random div</div>
+        <Show when={true}><div>hello world</div></Show>
+
+
+        <Switch expression={"hello"}>
+          <Case value={"hello 1"}>case 1</Case>
+          <Case value={"hello"}>case 2</Case>
+        </Switch>
     </>
 }
 
