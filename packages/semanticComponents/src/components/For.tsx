@@ -18,7 +18,3 @@ const For = <T,>({eachIn, render}: ForProps<T>): React.ReactNode => {
 }
 
 export default For;
-
-// useMount
-// useUnMount
-// useSideEffetct/strict/exclusive

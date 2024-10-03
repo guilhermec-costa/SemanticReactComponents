@@ -9,6 +9,9 @@ import useIsIntersectingScreen from "./hooks/useIsIntersectingScreen";
 import useClickOutside from "./hooks/useClickOutside";
 import Show from "./components/Show";
 import {Switch, Case} from "./components/SwitchCase";
+import With from "./components/With";
+import Desktop from "./components/Desktop";
+import useDevice from "./hooks/useDevice";
 
 export {
   If,
@@ -21,5 +24,8 @@ export {
   useIsIntersectingScreen,
   useClickOutside,
   Show,
-  Switch, Case
+  Switch, Case,
+  With,
+  Desktop,
+  useDevice
 }

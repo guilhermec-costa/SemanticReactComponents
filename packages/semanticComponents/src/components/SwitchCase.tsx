@@ -1,19 +1,18 @@
 import React from "react"
-import { markAsUntransferable } from "worker_threads";
 
 interface CaseProps {
   value?: any;
   default?: boolean;
-  children: React.ReactNode;
 }
+type CaseElement = React.ReactElement<CaseProps>
 
 interface SwitchProps {
   expression: any;
-  children: React.ReactElement<CaseProps>[] | React.ReactElement<CaseProps>;
+  children: CaseElement[] | CaseElement;
 }
 
 const Switch: React.FC<SwitchProps> = ({ expression, children }): React.ReactNode => {
-  let matchedChild: React.ReactElement<CaseProps> | null  = null;
+  let matchedChild: CaseElement | null  = null;
   React.Children.forEach(children, (child) => {
     if(!matchedChild && React.isValidElement(child)) {
       if(child.props.value === expression || child.props.default)
@@ -24,7 +23,7 @@ const Switch: React.FC<SwitchProps> = ({ expression, children }): React.ReactNod
   return matchedChild;
 }
 
-const Case: React.FC<CaseProps> = ({ value, default: boolean, children }) => {
+const Case: React.FC<React.PropsWithChildren<CaseProps>> = ({ value, default: boolean, children }) => {
   return <React.Fragment>{children}</React.Fragment>
 }
 
