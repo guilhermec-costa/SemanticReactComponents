@@ -1,10 +1,5 @@
 import React from "react";
 
-interface useIntervalProps {
-    callback: () => void;
-    delay: number;
-}
-
 const useInterval = (callback: () => void, delay: number) => {
   const cbRef = React.useRef(callback);
 

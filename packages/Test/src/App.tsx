@@ -9,7 +9,8 @@ import {
   With,
   Desktop,
   useDevice,
-  useAsyncEffect
+  useAsyncEffect,
+  useElementSize
 } from "@semanticComponents/index";
 import { LegacyRef, useEffect, useRef, useState } from "react";
 
@@ -18,6 +19,8 @@ const App = () => {
     const componentRef = useRef(null);
     const divIntersecting = useIsIntersectingScreen(componentRef);
     const clickRef = useClickOutside(() => console.log("clicked outside component ref"));
+    const [ref, size] = useElementSize<HTMLDivElement>();
+    console.log(size)
 
     const device = useDevice(1200);
     
@@ -33,6 +36,7 @@ const App = () => {
 
     return <>
         <button onClick={toggleModalOpen} ref={componentRef}>change modal view</button>
+        <div style={{background: "red", height: "80vh"}} ref={ref}>hello world</div>
         <If
 					condition={modalOpen}
 					render={

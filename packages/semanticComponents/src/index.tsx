@@ -13,6 +13,7 @@ import With from "./components/With";
 import Desktop from "./components/Desktop";
 import useDevice from "./hooks/useDevice";
 import useAsyncEffect from "./hooks/useAsyncEffect";
+import useElementSize from "./hooks/useElementSize";
 
 export {
   If,
@@ -29,5 +30,6 @@ export {
   With,
   Desktop,
   useDevice,
-  useAsyncEffect
+  useAsyncEffect,
+  useElementSize
 }
