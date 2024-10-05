@@ -10,7 +10,7 @@ interface MobileProps {
 const Mobile: React.FC<React.PropsWithChildren<MobileProps>> = ({baseWidth, children}): React.ReactNode => {
   const device = useDevice(baseWidth);
 
-  return device === Devices.DESKTOP ?
+  return device === Devices.MOBILE ?
     <React.Fragment>{children}</React.Fragment> :
     null;
 }

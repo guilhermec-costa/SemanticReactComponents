@@ -14,6 +14,7 @@ import Desktop from "./components/Desktop";
 import useDevice from "./hooks/useDevice";
 import useAsyncEffect from "./hooks/useAsyncEffect";
 import useElementSize from "./hooks/useElementSize";
+import useKeyCombo from "./hooks/useKeyCombo";
 
 export {
   If,
@@ -31,5 +32,6 @@ export {
   Desktop,
   useDevice,
   useAsyncEffect,
-  useElementSize
+  useElementSize,
+  useKeyCombo
 }

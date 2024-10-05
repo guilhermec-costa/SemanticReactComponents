@@ -10,7 +10,8 @@ import {
   Desktop,
   useDevice,
   useAsyncEffect,
-  useElementSize
+  useElementSize,
+  useKeyCombo
 } from "@semanticComponents/index";
 import { LegacyRef, useEffect, useRef, useState } from "react";
 
@@ -20,7 +21,13 @@ const App = () => {
     const divIntersecting = useIsIntersectingScreen(componentRef);
     const clickRef = useClickOutside(() => console.log("clicked outside component ref"));
     const [ref, size] = useElementSize<HTMLDivElement>();
-    console.log(size)
+
+    useKeyCombo([
+      {
+        keys: ["Control", "Enter"],
+        callback: () => console.log("executing callback")
+      }
+    ])
 
     const device = useDevice(1200);
     
