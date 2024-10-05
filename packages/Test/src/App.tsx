@@ -11,7 +11,8 @@ import {
   useDevice,
   useAsyncEffect,
   useElementSize,
-  useKeyCombo
+  useKeyCombo,
+  Delayed
 } from "@semanticComponents/index";
 import { LegacyRef, useEffect, useRef, useState } from "react";
 
@@ -68,6 +69,8 @@ const App = () => {
         <Desktop>
           <div>hello world</div>
         </Desktop>
+
+        <Delayed delay={3000}><div>hello world</div></Delayed>
     </>
 }
 

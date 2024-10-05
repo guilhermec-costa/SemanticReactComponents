@@ -15,6 +15,7 @@ import useDevice from "./hooks/useDevice";
 import useAsyncEffect from "./hooks/useAsyncEffect";
 import useElementSize from "./hooks/useElementSize";
 import useKeyCombo from "./hooks/useKeyCombo";
+import Delayed from "./components/Delayed";
 
 export {
   If,
@@ -33,5 +34,6 @@ export {
   useDevice,
   useAsyncEffect,
   useElementSize,
-  useKeyCombo
+  useKeyCombo,
+  Delayed
 }
