@@ -16,6 +16,8 @@ import useAsyncEffect from "./hooks/useAsyncEffect";
 import useElementSize from "./hooks/useElementSize";
 import useKeyCombo from "./hooks/useKeyCombo";
 import Delayed from "./components/Delayed";
+import useIdleDetection from "./hooks/useIdleDetection";
+import Cached from "./components/Cached";
 
 export {
   If,
@@ -35,5 +37,7 @@ export {
   useAsyncEffect,
   useElementSize,
   useKeyCombo,
-  Delayed
+  Delayed,
+  useIdleDetection,
+  Cached
 }

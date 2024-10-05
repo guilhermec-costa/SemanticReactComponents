@@ -12,9 +12,11 @@ import {
   useAsyncEffect,
   useElementSize,
   useKeyCombo,
-  Delayed
+  Delayed,
+  useIdleDetection,
+  Cached
 } from "@semanticComponents/index";
-import { LegacyRef, useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 
 const App = () => {
     const [modalOpen, toggleModalOpen] = useToggle(false);
@@ -22,12 +24,17 @@ const App = () => {
     const divIntersecting = useIsIntersectingScreen(componentRef);
     const clickRef = useClickOutside(() => console.log("clicked outside component ref"));
     const [ref, size] = useElementSize<HTMLDivElement>();
+    const isIdle = useIdleDetection(5000);
 
     useKeyCombo([
       {
         keys: ["Control", "Enter"],
-        callback: () => console.log("executing callback")
-      }
+        callback: () => console.log("executing callback 1")
+      },
+      {
+        keys: ["Control", "a"],
+        callback: () => console.log("executing callback 2")
+      },
     ])
 
     const device = useDevice(1200);
@@ -39,7 +46,6 @@ const App = () => {
     useAsyncEffect(async () => {
       const response = await fetch('https://jsonplaceholder.typicode.com/posts/1');
       const result = await response.json();
-      console.log(result)
     }, [modalOpen]);
 
     return <>
@@ -70,8 +76,18 @@ const App = () => {
           <div>hello world</div>
         </Desktop>
 
+
         <Delayed delay={3000}><div>hello world</div></Delayed>
+        <div>Inativo: {isIdle}</div>
+
+        <Cached deps={[]}>
+          <TestComponent />
+        </Cached>
     </>
+}
+
+function TestComponent() {
+  return <div>ksjgbfioegbfiesfewfwe</div>
 }
 
 export default App;
