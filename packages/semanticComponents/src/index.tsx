@@ -17,7 +17,8 @@ import useElementSize from "./hooks/useElementSize";
 import useKeyCombo from "./hooks/useKeyCombo";
 import Delayed from "./components/Delayed";
 import useIdleDetection from "./hooks/useIdleDetection";
-import Cached from "./components/Cached";
+import Memoized from "./components/Memoized";
+import useLocalStorage from "./hooks/useLocalStorage";
 
 export {
   If,
@@ -39,5 +40,6 @@ export {
   useKeyCombo,
   Delayed,
   useIdleDetection,
-  Cached
+  Memoized,
+  useLocalStorage
 }

@@ -1,10 +1,10 @@
 import React from "react";
 
-interface CachedProps {
+interface MemoizedProps {
   deps?: React.DependencyList;
 }
 
-const Cached: React.FC<React.PropsWithChildren<CachedProps>> = React.memo(
+const Memoized: React.FC<React.PropsWithChildren<MemoizedProps>> = React.memo(
   ({ deps, children }) => {
     console.log("aqui")
     return children;
@@ -17,4 +17,4 @@ const Cached: React.FC<React.PropsWithChildren<CachedProps>> = React.memo(
   }
 );
 
-export default Cached;
+export default Memoized;

@@ -1,6 +1,5 @@
 import {
-  If, For, useMounted, useToggle, useInterval,
-  usePrevious,
+  If, For, useToggle,
   useIsIntersectingScreen,
   useClickOutside,
   Show,
@@ -14,9 +13,10 @@ import {
   useKeyCombo,
   Delayed,
   useIdleDetection,
-  Cached
+  Memoized,
+  useLocalStorage
 } from "@semanticComponents/index";
-import { useRef } from "react";
+import React, { useRef } from "react";
 
 const App = () => {
     const [modalOpen, toggleModalOpen] = useToggle(false);
@@ -25,6 +25,12 @@ const App = () => {
     const clickRef = useClickOutside(() => console.log("clicked outside component ref"));
     const [ref, size] = useElementSize<HTMLDivElement>();
     const isIdle = useIdleDetection(5000);
+    const [value, setValue, removeValue] = useLocalStorage<string>("test", "aham");
+
+    React.useEffect(() => {
+      // setValue("test")
+      removeValue();
+    }, []);
 
     useKeyCombo([
       {
@@ -80,9 +86,9 @@ const App = () => {
         <Delayed delay={3000}><div>hello world</div></Delayed>
         <div>Inativo: {isIdle}</div>
 
-        <Cached deps={[]}>
+        <Memoized deps={[]}>
           <TestComponent />
-        </Cached>
+        </Memoized>
     </>
 }
 
