@@ -6,7 +6,6 @@ interface MemoizedProps {
 
 const Memoized: React.FC<React.PropsWithChildren<MemoizedProps>> = React.memo(
   ({ deps, children }) => {
-    console.log("aqui")
     return children;
   },
   (prevProps, nextProps) => {
