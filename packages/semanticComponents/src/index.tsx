@@ -19,6 +19,8 @@ import Delayed from "./components/Delayed";
 import useIdleDetection from "./hooks/useIdleDetection";
 import Memoized from "./components/Memoized";
 import useLocalStorage from "./hooks/useLocalStorage";
+import useSessionStorage from "./hooks/useSessionStorage";
+import useFetch from "./hooks/useFetch";
 
 export {
   If,
@@ -41,5 +43,7 @@ export {
   Delayed,
   useIdleDetection,
   Memoized,
-  useLocalStorage
+  useLocalStorage,
+  useSessionStorage,
+  useFetch
 }

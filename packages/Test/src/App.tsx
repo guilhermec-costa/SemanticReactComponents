@@ -14,9 +14,10 @@ import {
   Delayed,
   useIdleDetection,
   Memoized,
-  useLocalStorage
+  useLocalStorage,
+  useFetch
 } from "@semanticComponents/index";
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 
 const App = () => {
     const [modalOpen, toggleModalOpen] = useToggle(false);
@@ -26,11 +27,13 @@ const App = () => {
     const [ref, size] = useElementSize<HTMLDivElement>();
     const isIdle = useIdleDetection(5000);
     const [value, setValue, removeValue] = useLocalStorage<string>("test", "aham");
+    const { data, loading, error, refetch } = useFetch<any>("https://jsonplaceholder.typicode.com/posts/1");
 
-    React.useEffect(() => {
-      // setValue("test")
-      removeValue();
-    }, []);
+    useEffect(() => {
+      console.log(data)
+      console.log("loading: ", loading);
+      console.log("error: ", error)
+    }, [data])
 
     useKeyCombo([
       {
