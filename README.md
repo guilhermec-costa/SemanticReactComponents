@@ -195,3 +195,128 @@ const Example = () => (
   <p>This content is shown when the condition is true</p>
 </Show>
 ```
+
+### `EnvSwitch`
+
+The `EnvSwitch` component switches between different environment configurations, allowing you to render specific content based on the current environment (e.g., development, staging, production).
+
+#### Usage
+
+```tsx
+import EnvSwitch from 'semantic-components/EnvSwitch';
+
+const Example = () => (
+  <EnvSwitch dev={<div>This content appears in development</div>} hml={<div>This content appears in staging</div>} prod={<div>This content appears in production</div>} />
+);
+```
+
+#### Properties
+
+| Property | Type          | Description                                             |
+|----------|---------------|---------------------------------------------------------|
+| `dev`    | React.ReactNode| Elements to render in the development environment.      |
+| `hml`    | React.ReactNode| Elements to render in the staging environment.         |
+| `prod`   | React.ReactNode| Elements to render in the production environment.      |
+
+#### Behavior
+
+- Renders the content based on the current environment specified by `process.env.NODE_ENV`.
+- If the environment does not match any case, nothing is rendered.
+
+### `useAsyncEffect`
+
+The `useAsyncEffect` hook allows you to run asynchronous effects in a React functional component. It is an asynchronous variant of the standard `useEffect` hook.
+
+#### Usage
+
+```tsx
+import useAsyncEffect from 'semantic-components/useAsyncEffect';
+
+const Example = () => {
+  useAsyncEffect(async () => {
+    const data = await fetchData();
+    console.log(data);
+
+    // Optional cleanup function
+    return () => {
+      console.log('Cleanup logic here');
+    };
+  }, [/* dependencies */]);
+  
+  return <div>Check the console for fetched data.</div>;
+};
+```
+
+#### Parameters
+
+| Parameter | Type                 | Description                                                  |
+|-----------|----------------------|--------------------------------------------------------------|
+| `cb`      | () => Promise<void>  | The asynchronous callback to run. It can optionally return a cleanup function. |
+| `deps`    | React.DependencyList  | An array of dependencies for the effect; the effect will run whenever these dependencies change. |
+
+### `useElementSize`
+
+The `useElementSize` hook provides a way to measure the size of a DOM element and automatically updates the size when the element is resized.
+
+#### Usage
+
+```tsx
+import useElementSize from 'semantic-components/useElementSize';
+
+const Example = () => {
+  const [ref, { width, height }] = useElementSize<HTMLDivElement>();
+
+  return (
+    <div ref={ref} style={{ resize: 'both', overflow: 'auto' }}>
+      <p>The size of this element is {width} x {height}</p>
+    </div>
+  );
+};
+```
+
+#### Returns
+
+- An array containing:
+  1. A `RefObject` that should be assigned to the DOM element you want to measure.
+  2. An object with `width` and `height` properties representing the current dimensions of the element.
+
+#### Behavior
+
+- Uses a `ResizeObserver` to monitor size changes and updates the dimensions accordingly.
+- Initializes the dimensions to `{ width: 0, height: 0 }`.
+
+### `useIdleDetection`
+
+The `useIdleDetection` hook detects user inactivity within a specified timeout period. It returns a boolean indicating whether the user is considered idle.
+
+#### Usage
+
+```tsx
+import useIdleDetection from 'semantic-components/useIdleDetection';
+
+const Example = () => {
+  const isIdle = useIdleDetection(30000); // 30 seconds timeout
+
+  return (
+    <div>
+      {isIdle ? <p>You are idle</p> : <p>You are active</p>}
+    </div>
+  );
+};
+```
+
+#### Parameters
+
+| Parameter | Type   | Description                             |
+|-----------|--------|-----------------------------------------|
+| `timeout` | number | The duration (in milliseconds) after which the user is considered idle. Default is 30000 ms (30 seconds). |
+
+#### Returns
+
+- A boolean indicating whether the user is idle (`true` if idle, `false` if active).
+
+#### Behavior
+
+- Monitors specific user interactions: `mousemove`, `keydown`, `click`, and `scroll`.
+- Resets the idle timer whenever a valid interaction occurs.
+- Cleans up event listeners and timeout when the component unmounts or when the timeout changes.
