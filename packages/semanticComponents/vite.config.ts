@@ -1,9 +1,11 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
+import dts from 'vite-plugin-dts';
+
 
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), dts()],
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src')  // Alias @ para o src do package
@@ -12,7 +14,7 @@ export default defineConfig({
   build: {
     outDir: 'dist',  // Local onde a build será gerada para o package
     lib: {
-      entry: path.resolve(__dirname, './src/index.tsx'),  // Ponto de entrada da build
+      entry: path.resolve(__dirname, './src/index.ts'),  // Ponto de entrada da build
       name: 'SemanticComponents',
       fileName: (format) => `semantic-components.${format}.js`,
     },

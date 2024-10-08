@@ -1,10 +1,19 @@
 {
   "name": "semantic-react-ui-components",
-  "version": "1.0.8",
+  "version": "1.1.1",
   "description": "Semantic Components",
   "main": "./dist/index.js",
+  "module": "dist/semantic-components.esm.js",  
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/semantic-components.es.js",  
+      "require": "./dist/semantic-components.umd.js"  
+    }
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "vite build"
   },
   "repository": {
     "type": "git",
@@ -15,5 +24,12 @@
   "bugs": {
     "url": "https://github.com/guilhermec-costa/SemanticReactComponents/issues"
   },
-  "homepage": "https://github.com/guilhermec-costa/SemanticReactComponents#readme"
+  "homepage": "https://github.com/guilhermec-costa/SemanticReactComponents#readme",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "devDependencies": {
+    "vite-plugin-dts": "^4.2.3"
+  }
 }
