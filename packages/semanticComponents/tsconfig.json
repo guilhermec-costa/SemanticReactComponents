@@ -1,4 +1,14 @@
 {
-  "extends": "../../tsconfig.json",  
-  "include": ["src/**/*"]
+  "compilerOptions": {
+    "target": "es5",                    
+    "module": "ESNext",
+    "jsx": "react",                     
+    "outDir": "./dist",                 
+    "strict": true,                     
+    "esModuleInterop": true,            
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": ["src/**/*"],              
+  "exclude": ["node_modules", "**/*.spec.ts"]
 }
