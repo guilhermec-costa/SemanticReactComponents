@@ -320,3 +320,81 @@ const Example = () => {
 - Monitors specific user interactions: `mousemove`, `keydown`, `click`, and `scroll`.
 - Resets the idle timer whenever a valid interaction occurs.
 - Cleans up event listeners and timeout when the component unmounts or when the timeout changes.
+
+### `useKeyCombo`
+
+The `useKeyCombo` hook allows you to define and detect key combinations in your React application. When a defined combination of keys is pressed, a specified callback function is executed.
+
+#### Usage
+
+```tsx
+import useKeyCombo from 'semantic-components/useKeyCombo';
+
+const Example = () => {
+  useKeyCombo([
+    {
+      keys: ['Control', 'C'],
+      callback: () => console.log('Control + C pressed!'),
+    },
+    {
+      keys: ['Control', 'V'],
+      callback: () => console.log('Control + V pressed!'),
+    },
+  ]);
+
+  return <div>Press key combinations!</div>;
+};
+```
+
+#### Parameters
+
+| Parameter | Type           | Description                                         |
+|-----------|----------------|-----------------------------------------------------|
+| `combos`  | `KeyCombo[]`   | An array of key combinations to listen for. Each `KeyCombo` contains: |
+|           |                | - `keys`: An array of key names (strings).        |
+|           |                | - `callback`: A function to be executed when the combination is pressed. |
+
+#### Behavior
+
+- Listens for `keydown` and `keyup` events on the document.
+- Maintains a state of currently pressed keys.
+- Executes the callback for each key combination when all specified keys are pressed.
+- Cleans up event listeners when the component unmounts.
+
+#### Notes
+
+- Ensure that the keys specified in the `keys` array are valid key names recognized by the browser (e.g., "Enter", "Escape", "Control").
+
+### `ScrollTo`
+
+The `ScrollTo` component provides a smooth scrolling effect to a specified element when the button is clicked. It scrolls to the target element identified by the `targetId` prop.
+
+#### Usage
+
+```tsx
+import ScrollTo from 'semantic-components/ScrollTo';
+
+const Example = () => {
+  return (
+    <ScrollTo targetId="section1">
+      <button>Scroll to Section 1</button>
+    </ScrollTo>
+  );
+};
+```
+
+#### Props
+
+| Prop       | Type               | Description                                                      |
+|------------|--------------------|------------------------------------------------------------------|
+| `targetId` | `string`           | The ID of the element to scroll to.                             |
+| `children` | `React.ReactNode`  | The content to render inside the button.                        |
+
+#### Behavior
+
+- When the button is clicked, the component scrolls smoothly to the specified target element.
+- Uses the native `scrollIntoView` method for smooth scrolling.
+
+#### Notes
+
+- Ensure that the target element exists in the DOM with the specified ID.
