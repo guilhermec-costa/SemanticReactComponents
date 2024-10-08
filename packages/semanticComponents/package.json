@@ -1,0 +1,19 @@
+{
+  "name": "semantic-react-ui-components",
+  "version": "1.0.2",
+  "description": "Semantic Components",
+  "main": "./src/index.tsx",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guilhermec-costa/SemanticReactComponents.git"
+  },
+  "author": "guilherme china",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/guilhermec-costa/SemanticReactComponents/issues"
+  },
+  "homepage": "https://github.com/guilhermec-costa/SemanticReactComponents#readme"
+}
