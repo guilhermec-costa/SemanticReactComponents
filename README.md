@@ -1,6 +1,13 @@
-# Semantic React UI Components
+# Semantic Components
 
-A collection of semantic and utility components for React applications. This package provides reusable components and hooks to simplify conditional rendering, event handling, and other common UI patterns.
+Semantic Components is a library of reusable, semantic React components and useful hooks designed to enhance your web applications. This library focuses on providing a set of well-structured components that are easy to integrate and customize, promoting best practices in React development. 
+
+## Features
+
+- **Semantic Structure**: Each component is built with a focus on accessibility and semantic HTML, ensuring that your applications are not only visually appealing but also easy to understand for both users and developers.
+- **Reusable Hooks**: A collection of custom hooks that simplify common tasks and improve code reusability, making it easier to manage state and side effects in your applications.
+- **Lightweight and Efficient**: Components are designed to be lightweight, ensuring optimal performance and fast load times.
+
 
 ## Installation
 
