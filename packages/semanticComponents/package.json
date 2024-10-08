@@ -1,6 +1,6 @@
 {
   "name": "semantic-react-ui-components",
-  "version": "1.0.3",
+  "version": "1.0.8",
   "description": "Semantic Components",
   "main": "./dist/index.js",
   "scripts": {

@@ -1,0 +1,1 @@
+declare module 'semantic-react-ui-components';
